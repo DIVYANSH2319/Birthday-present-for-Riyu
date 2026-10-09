@@ -11,111 +11,175 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Nirmala UI", "Mangal", Arial, sans-serif;
 }
 
 body {
     min-height: 100vh;
-    font-family: "Nirmala UI", "Mangal", Arial, sans-serif;
-    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+    overflow-x: hidden;
+    background: linear-gradient(-45deg, #ff6ec4, #7873f5, #ff9a9e, #fad0c4);
     background-size: 400% 400%;
-    animation: bg 12s ease infinite;
+    animation: bg 10s infinite alternate;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 25px 12px;
-    overflow-x: hidden;
 }
 
 @keyframes bg {
     0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
 }
 
-.container {
-    width: 100%;
-    max-width: 650px;
+.card {
+    width: 95%;
+    max-width: 850px;
+    padding: 30px;
+    background: rgba(255,255,255,0.20);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 28px;
     text-align: center;
+    color: white;
+    box-shadow: 0 0 30px rgba(255,20,147,0.35);
     position: relative;
     z-index: 2;
 }
 
 .badge {
     display: inline-block;
-    background: rgba(255,255,255,0.35);
-    color: white;
+    background: rgba(255,255,255,0.22);
     padding: 10px 18px;
     border-radius: 30px;
-    margin-bottom: 22px;
     font-size: 14px;
-    box-shadow: 0 4px 15px #d66caa44;
+    margin-bottom: 18px;
 }
 
 h1 {
-    color: white;
-    font-size: clamp(30px, 6vw, 45px);
-    text-shadow: 0 0 15px #ff4da6;
+    font-size: clamp(30px, 5vw, 48px);
+    text-shadow: 0 0 15px white;
     margin-bottom: 12px;
 }
 
-.subtitle {
-    color: white;
-    font-size: 19px;
-    margin-bottom: 20px;
+h2 {
+    margin: 15px 0;
 }
 
-.envelope {
-    font-size: 110px;
+.intro {
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 15px 0;
+}
+
+.cake {
+    font-size: 100px;
+    animation: bounce 1.2s infinite;
     cursor: pointer;
-    animation: bounce 1.5s infinite;
-    filter: drop-shadow(0 8px 12px #b74d8755);
+    margin: 15px 0;
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+    50% { transform: translateY(-10px); }
 }
 
 button {
+    padding: 14px 25px;
+    font-size: 16px;
     border: none;
-    padding: 15px 28px;
-    margin: 12px 5px;
-    border-radius: 35px;
+    border-radius: 40px;
+    cursor: pointer;
     background: white;
     color: #e84393;
-    font-size: 16px;
     font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 5px 18px #9d397044;
+    margin: 10px 5px;
     transition: 0.3s;
+    box-shadow: 0 5px 18px rgba(100,0,70,0.15);
 }
 
 button:hover {
     transform: scale(1.06);
-    box-shadow: 0 8px 25px #9d397066;
 }
 
-/* Letter */
+/* Envelope */
 
-.letter {
+.envelope-box {
+    margin: 20px auto;
+    padding: 22px 15px;
+    max-width: 400px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 24px;
+}
+
+.envelope {
+    display: inline-block;
+    font-size: 105px;
+    cursor: pointer;
+    animation: envelopeBounce 1.5s infinite;
+    filter: drop-shadow(0 0 15px rgba(255,20,147,0.45));
+    transition: transform 0.3s;
+}
+
+.envelope:hover {
+    transform: scale(1.12);
+}
+
+@keyframes envelopeBounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(3deg); }
+}
+
+.open-text {
+    font-size: 19px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.hint {
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* Letter overlay */
+
+#letterOverlay {
     display: none;
-    text-align: left;
-    background: #fffaf5;
-    color: #5d3547;
-    padding: clamp(20px, 5vw, 38px);
-    border-radius: 18px;
-    margin-top: 25px;
-    box-shadow: 0 15px 45px #783c6b44;
-    border: 2px solid #ffd1e5;
-    animation: openLetter 1s ease;
-    line-height: 1.95;
-    font-size: 16px;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(40, 10, 35, 0.78);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+    overflow-y: auto;
+    padding: 20px 12px;
+    animation: fade 0.5s ease;
 }
 
-@keyframes openLetter {
+@keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.letter-paper {
+    width: 100%;
+    max-width: 680px;
+    margin: 15px auto;
+    padding: clamp(20px, 4vw, 38px);
+    background: #fffaf2;
+    color: #633b50;
+    border: 3px solid #ffc1dc;
+    border-radius: 20px;
+    text-align: left;
+    line-height: 1.95;
+    box-shadow: 0 0 35px rgba(255,105,180,0.55);
+    animation: openPaper 0.8s ease;
+}
+
+@keyframes openPaper {
     from {
         opacity: 0;
-        transform: translateY(25px) scale(0.96);
+        transform: translateY(30px) scale(0.96);
     }
     to {
         opacity: 1;
@@ -123,41 +187,45 @@ button:hover {
     }
 }
 
-.letter h2 {
+.letter-paper h2 {
     text-align: center;
     color: #e84393;
+    font-size: 26px;
     margin-bottom: 22px;
-    font-size: 25px;
 }
 
-.letter p {
-    margin-bottom: 17px;
+.letter-paper p {
+    margin: 16px 0;
+    font-size: 16px;
 }
 
 .highlight {
-    color: #df438b;
-    font-weight: bold;
-}
-
-.signature {
-    text-align: right;
-    margin-top: 25px;
     color: #d63384;
     font-weight: bold;
-    font-size: 18px;
 }
 
-.footer {
-    margin-top: 22px;
-    color: white;
-    font-size: 14px;
+.letter-sign {
+    text-align: right;
+    color: #d63384;
+    font-weight: bold;
+    font-size: 17px;
+    margin-top: 25px;
 }
+
+.close-btn {
+    display: block;
+    margin: 25px auto 5px;
+    background: #e84393;
+    color: white;
+}
+
+/* Hearts and balloons */
 
 .heart, .balloon {
     position: fixed;
     bottom: -60px;
-    pointer-events: none;
     z-index: 1;
+    pointer-events: none;
     animation: floatUp linear forwards;
 }
 
@@ -173,31 +241,46 @@ button:hover {
     }
 }
 
-.firework {
+/* Fireworks */
+
+.fire {
     position: fixed;
     width: 8px;
     height: 8px;
     border-radius: 50%;
     pointer-events: none;
-    z-index: 10;
+    z-index: 120;
     animation: blast 1.5s ease-out forwards;
 }
 
 @keyframes blast {
+    from {
+        opacity: 1;
+        transform: translate(0,0) scale(1);
+    }
     to {
         opacity: 0;
-        transform: translate(var(--x), var(--y)) scale(0.2);
+        transform: translate(var(--x),var(--y)) scale(0.2);
     }
 }
 
-@media(max-width: 480px) {
-    .letter {
-        font-size: 15px;
-        line-height: 1.85;
+.footer {
+    margin-top: 22px;
+    font-size: 13px;
+    opacity: 0.95;
+}
+
+@media(max-width: 500px) {
+    .card {
+        padding: 22px 15px;
     }
 
     .envelope {
         font-size: 90px;
+    }
+
+    .letter-paper p {
+        font-size: 15px;
     }
 }
 </style>
@@ -205,7 +288,7 @@ button:hover {
 
 <body>
 
-<div class="container">
+<div class="card">
 
     <div class="badge">
         🌸 A SPECIAL DAY FOR A SPECIAL PERSON 🌸
@@ -213,25 +296,55 @@ button:hover {
 
     <h1>🎉 Happy Birthday 🎉</h1>
 
-    <div class="subtitle">
-        👑 Dear Ma'am Ji ❤️
+    <h2>👑 Dear Ma'am Ji ❤️</h2>
+
+    <div class="cake" onclick="celebrate()">🎂</div>
+
+    <div class="intro">
+        A wonderful teacher, a beautiful heart<br>
+        and a friend who makes a difference. 🥹💗
+        <br><br>
+        Ma'am, aapke liye ek chhota sa surprise hai! 🌷
     </div>
 
-    <div class="envelope" onclick="openLetter()">
-        💌
+    <div class="envelope-box">
+
+        <div class="envelope" onclick="openLetter()">
+            💌
+        </div>
+
+        <div class="open-text">
+            A Special Letter For You ❤️
+        </div>
+
+        <div class="hint">
+            💗 Click the letter to open it 💗
+        </div>
+
+        <button onclick="openLetter()">
+            💌 Open Your Letter
+        </button>
+
     </div>
 
-    <p style="color:white; margin-top:12px;">
-        A little letter, written straight from my heart 🥹💗
-    </p>
-
-    <button id="openBtn" onclick="openLetter()">
-        💌 Open Your Letter 💌
+    <button onclick="celebrate()">
+        Celebrate 🎆
     </button>
 
-    <div class="letter" id="letter">
+    <div class="footer">
+        Made with respect, friendship & lots of love ❤️<br>
+        A little birthday surprise from Divy 🌸
+    </div>
 
-        <h2>💗 प्रिय मैम जी 💗</h2>
+</div>
+
+<!-- PERSONAL LETTER -->
+
+<div id="letterOverlay">
+
+    <div class="letter-paper">
+
+        <h2>💌 प्रिय मैम जी ❤️</h2>
 
         <p>
             🎂💐 <span class="highlight">जन्मदिन की आपको ढेर सारी शुभकामनाएँ!</span>
@@ -251,11 +364,11 @@ button:hover {
         </p>
 
         <p>
-            और मैम, एक बात के लिए सॉरी! 😅🙏
+            और मैम, एक बात के लिए सॉरी! 🥺🙏
             मैं आपको कभी-कभी बहुत तंग करता हूँ
             और क्लास में थोड़ी मस्ती भी कर लेता हूँ।
             अगर कभी मेरी किसी बात से आपको बुरा लगा हो,
-            तो उसके लिए दिल से सॉरी, मैम। 🥺💗
+            तो उसके लिए दिल से सॉरी, मैम। ❤️
         </p>
 
         <p>
@@ -277,8 +390,8 @@ button:hover {
             आप सच में सम्मान और प्यार की हकदार हैं। ❤️🌸
         </p>
 
-        <p style="text-align:center; color:#e84393; font-weight:bold;">
-            बस मैम, हमेशा ऐसे ही मुस्कुराते रहना। 😊💖
+        <p style="text-align:center; color:#d63384;">
+            <b>मैम, हमेशा ऐसे ही मुस्कुराते रहना। 😊💖</b>
         </p>
 
         <p>
@@ -291,80 +404,70 @@ button:hover {
         <p>
             एक बार फिर से आपको जन्मदिन की
             <span class="highlight">ढेर सारी शुभकामनाएँ, मैम!</span> 🎂🎉
+            हमें इतना अच्छा पढ़ाने, समझने और दोस्त की तरह
+            व्यवहार करने के लिए दिल से धन्यवाद। ❤️
         </p>
 
-        <p>
-            आपके पढ़ाने, हमें समझने और एक दोस्त की तरह
-            हमारा साथ देने के लिए दिल से धन्यवाद। ❤️
-        </p>
-
-        <div class="signature">
-            आपका आज्ञाकारी,"<br>
+        <div class="letter-sign">
+            आपका आज्ञाकारी,,<br>
              — Divvy ❤️<br><br>
             राधे राधे 🙏🌸
         </div>
 
-    </div>
+        <button class="close-btn" onclick="closeLetter()">
+            💗 Close Letter
+        </button>
 
-    <div class="footer">
-        Made with respect, friendship & lots of love ❤️<br>
-        A little birthday surprise from Divvy 🎂
     </div>
 
 </div>
 
 <script>
 
-let letterOpened = false;
+let tunePlayed = false;
 
 function openLetter() {
 
-    const letter = document.getElementById("letter");
+    document.getElementById("letterOverlay").style.display = "block";
 
-    letter.style.display = "block";
+    hearts();
+    fireworks();
 
-    document.getElementById("openBtn").innerText =
-        "🎉 Celebrate Ma'am's Birthday 🎉";
-
-    if (!letterOpened) {
-        letterOpened = true;
-        hearts();
-        balloons();
-        fireworks();
+    if (!tunePlayed) {
         birthdayTune();
+        tunePlayed = true;
     }
+}
 
-    document.getElementById("openBtn").onclick = celebrate;
-
-    setTimeout(() => {
-        letter.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-    }, 200);
+function closeLetter() {
+    document.getElementById("letterOverlay").style.display = "none";
 }
 
 function celebrate() {
     hearts();
     balloons();
     fireworks();
-    birthdayTune();
+
+    if (!tunePlayed) {
+        birthdayTune();
+        tunePlayed = true;
+    }
 }
 
 function hearts() {
 
     for (let i = 0; i < 35; i++) {
 
-        const h = document.createElement("div");
+        let h = document.createElement("div");
 
         h.className = "heart";
 
-        h.innerHTML = ["❤️", "💖", "💕", "💗", "💝", "🥰"][
-            Math.floor(Math.random() * 6)
+        h.innerHTML = ["❤️", "💖", "💕", "💗", "💝"][
+            Math.floor(Math.random() * 5)
         ];
 
         h.style.left = Math.random() * 100 + "vw";
-        h.style.fontSize = (18 + Math.random() * 20) + "px";
+        h.style.fontSize = (18 + Math.random() * 22) + "px";
         h.style.animationDuration = (5 + Math.random() * 5) + "s";
 
         document.body.appendChild(h);
@@ -375,14 +478,12 @@ function hearts() {
 
 function balloons() {
 
-    for (let i = 0; i < 18; i++) {
+    for (let i = 0; i < 20; i++) {
 
-        const b = document.createElement("div");
+        let b = document.createElement("div");
 
         b.className = "balloon";
-        b.innerHTML = ["🎈", "🎈", "🎀", "💖"][
-            Math.floor(Math.random() * 4)
-        ];
+        b.innerHTML = "🎈";
 
         b.style.left = Math.random() * 100 + "vw";
         b.style.fontSize = (25 + Math.random() * 25) + "px";
@@ -398,9 +499,9 @@ function fireworks() {
 
     for (let i = 0; i < 100; i++) {
 
-        const f = document.createElement("div");
+        let f = document.createElement("div");
 
-        f.className = "firework";
+        f.className = "fire";
 
         f.style.left = (10 + Math.random() * 80) + "vw";
         f.style.top = (10 + Math.random() * 70) + "vh";
@@ -409,11 +510,13 @@ function fireworks() {
             "hsl(" + Math.random() * 360 + ",100%,60%)";
 
         f.style.setProperty(
-            "--x", (Math.random() - 0.5) * 250 + "px"
+            "--x",
+            (Math.random() - 0.5) * 250 + "px"
         );
 
         f.style.setProperty(
-            "--y", (Math.random() - 0.5) * 250 + "px"
+            "--y",
+            (Math.random() - 0.5) * 250 + "px"
         );
 
         document.body.appendChild(f);
@@ -448,8 +551,8 @@ function birthdayTune() {
         o.connect(g);
         g.connect(ctx.destination);
 
-        o.type = "triangle";
         o.frequency.value = n;
+        o.type = "triangle";
 
         g.gain.setValueAtTime(0.12, t);
         g.gain.exponentialRampToValueAtTime(0.001, t + 0.3);
