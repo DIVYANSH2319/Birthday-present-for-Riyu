@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Ma'am Ji ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Nirmala UI", "Mangal", Arial, sans-serif;
+    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+    background-size: 400% 400%;
+    animation: bg 12s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 12px;
+    overflow-x: hidden;
+}
+
+@keyframes bg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.35);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 30px;
+    margin-bottom: 22px;
+    font-size: 14px;
+    box-shadow: 0 4px 15px #d66caa44;
+}
+
+h1 {
+    color: white;
+    font-size: clamp(30px, 6vw, 45px);
+    text-shadow: 0 0 15px #ff4da6;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    color: white;
+    font-size: 19px;
+    margin-bottom: 20px;
+}
+
+.envelope {
+    font-size: 110px;
+    cursor: pointer;
+    animation: bounce 1.5s infinite;
+    filter: drop-shadow(0 8px 12px #b74d8755);
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+button {
+    border: none;
+    padding: 15px 28px;
+    margin: 12px 5px;
+    border-radius: 35px;
+    background: white;
+    color: #e84393;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 18px #9d397044;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.06);
+    box-shadow: 0 8px 25px #9d397066;
+}
+
+/* Letter */
+
+.letter {
+    display: none;
+    text-align: left;
+    background: #fffaf5;
+    color: #5d3547;
+    padding: clamp(20px, 5vw, 38px);
+    border-radius: 18px;
+    margin-top: 25px;
+    box-shadow: 0 15px 45px #783c6b44;
+    border: 2px solid #ffd1e5;
+    animation: openLetter 1s ease;
+    line-height: 1.95;
+    font-size: 16px;
+}
+
+@keyframes openLetter {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.letter h2 {
+    text-align: center;
+    color: #e84393;
+    margin-bottom: 22px;
+    font-size: 25px;
+}
+
+.letter p {
+    margin-bottom: 17px;
+}
+
+.highlight {
+    color: #df438b;
+    font-weight: bold;
+}
+
+.signature {
+    text-align: right;
+    margin-top: 25px;
+    color: #d63384;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.footer {
+    margin-top: 22px;
+    color: white;
+    font-size: 14px;
+}
+
+.heart, .balloon {
+    position: fixed;
+    bottom: -60px;
+    pointer-events: none;
+    z-index: 1;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    100% {
+        transform: translateY(-115vh) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+.firework {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10;
+    animation: blast 1.5s ease-out forwards;
+}
+
+@keyframes blast {
+    to {
+        opacity: 0;
+        transform: translate(var(--x), var(--y)) scale(0.2);
+    }
+}
+
+@media(max-width: 480px) {
+    .letter {
+        font-size: 15px;
+        line-height: 1.85;
+    }
+
+    .envelope {
+        font-size: 90px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="badge">
+        🌸 A SPECIAL DAY FOR A SPECIAL PERSON 🌸
+    </div>
+
+    <h1>🎉 Happy Birthday 🎉</h1>
+
+    <div class="subtitle">
+        👑 Dear Ma'am Ji ❤️
+    </div>
+
+    <div class="envelope" onclick="openLetter()">
+        💌
+    </div>
+
+    <p style="color:white; margin-top:12px;">
+        A little letter, written straight from my heart 🥹💗
+    </p>
+
+    <button id="openBtn" onclick="openLetter()">
+        💌 Open Your Letter 💌
+    </button>
+
+    <div class="letter" id="letter">
+
+        <h2>💗 प्रिय मैम जी 💗</h2>
+
+        <p>
+            🎂💐 <span class="highlight">जन्मदिन की आपको ढेर सारी शुभकामनाएँ!</span>
+            भगवान जी की कृपा हमेशा आप पर बनी रहे।
+            आप जीवन में अपने हर सपने को पूरा करें और हमेशा खुश रहें।
+            आपके जीवन में कभी खुशियों की कमी न हो। ❤️✨
+        </p>
+
+        <p>
+            मैम, आप मेरे लिए सिर्फ एक टीचर नहीं,
+            बल्कि एक दोस्त जैसी हैं। 🥹💗
+            आपने हमें इतने अच्छे तरीके से समझाया और पढ़ाया है,
+            उसके लिए दिल से धन्यवाद।
+            आपने हमें सिर्फ एक टीचर की तरह नहीं,
+            बल्कि एक दोस्त की तरह भी समझा है।
+            इसके लिए मैं आपका सच में बहुत आभारी हूँ। ❤️
+        </p>
+
+        <p>
+            और मैम, एक बात के लिए सॉरी! 😅🙏
+            मैं आपको कभी-कभी बहुत तंग करता हूँ
+            और क्लास में थोड़ी मस्ती भी कर लेता हूँ।
+            अगर कभी मेरी किसी बात से आपको बुरा लगा हो,
+            तो उसके लिए दिल से सॉरी, मैम। 🥺💗
+        </p>
+
+        <p>
+            मैम, एक सच्ची बात बताऊँ?
+            आप मुझे मेरी बचपन की दोस्त
+            <span class="highlight">रिया</span> की तरह लगती हैं। 🥹❤️
+            शायद इसी वजह से मैं आपके साथ थोड़ा
+            मस्ती-मज़ाक कर लेता हूँ और आपको अपनी दोस्त
+            की तरह समझता हूँ।
+            लेकिन मेरा इरादा कभी भी आपको दुख पहुँचाने का नहीं होता।
+        </p>
+
+        <p>
+            और मैम, अगर क्लास के कुछ विद्यार्थियों की वजह से
+            आपको कभी बुरा लगा हो या आपका दिल दुखा हो,
+            तो उनकी तरफ़ से भी सॉरी। 🙏🥺
+            आप हमेशा सबको इतने अच्छे से समझाती हैं
+            और अपना समय देती हैं।
+            आप सच में सम्मान और प्यार की हकदार हैं। ❤️🌸
+        </p>
+
+        <p style="text-align:center; color:#e84393; font-weight:bold;">
+            बस मैम, हमेशा ऐसे ही मुस्कुराते रहना। 😊💖
+        </p>
+
+        <p>
+            भगवान जी आपकी हर मनोकामना पूरी करें,
+            आप पर अपनी कृपा बनाए रखें और आपको जीवन में
+            खूब सफलता दें।
+            आप अपने सारे सपने पूरे करें और हमेशा आगे बढ़ती रहें। 🌷✨
+        </p>
+
+        <p>
+            एक बार फिर से आपको जन्मदिन की
+            <span class="highlight">ढेर सारी शुभकामनाएँ, मैम!</span> 🎂🎉
+        </p>
+
+        <p>
+            आपके पढ़ाने, हमें समझने और एक दोस्त की तरह
+            हमारा साथ देने के लिए दिल से धन्यवाद। ❤️
+        </p>
+
+        <div class="signature">
+            आपका आज्ञाकारी,"<br>
+             — Divvy ❤️<br><br>
+            राधे राधे 🙏🌸
+        </div>
+
+    </div>
+
+    <div class="footer">
+        Made with respect, friendship & lots of love ❤️<br>
+        A little birthday surprise from Divvy 🎂
+    </div>
+
+</div>
+
+<script>
+
+let letterOpened = false;
+
+function openLetter() {
+
+    const letter = document.getElementById("letter");
+
+    letter.style.display = "block";
+
+    document.getElementById("openBtn").innerText =
+        "🎉 Celebrate Ma'am's Birthday 🎉";
+
+    if (!letterOpened) {
+        letterOpened = true;
+        hearts();
+        balloons();
+        fireworks();
+        birthdayTune();
+    }
+
+    document.getElementById("openBtn").onclick = celebrate;
+
+    setTimeout(() => {
+        letter.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }, 200);
+}
+
+function celebrate() {
+    hearts();
+    balloons();
+    fireworks();
+    birthdayTune();
+}
+
+function hearts() {
+
+    for (let i = 0; i < 35; i++) {
+
+        const h = document.createElement("div");
+
+        h.className = "heart";
+
+        h.innerHTML = ["❤️", "💖", "💕", "💗", "💝", "🥰"][
+            Math.floor(Math.random() * 6)
+        ];
+
+        h.style.left = Math.random() * 100 + "vw";
+        h.style.fontSize = (18 + Math.random() * 20) + "px";
+        h.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+        document.body.appendChild(h);
+
+        setTimeout(() => h.remove(), 10000);
+    }
+}
+
+function balloons() {
+
+    for (let i = 0; i < 18; i++) {
+
+        const b = document.createElement("div");
+
+        b.className = "balloon";
+        b.innerHTML = ["🎈", "🎈", "🎀", "💖"][
+            Math.floor(Math.random() * 4)
+        ];
+
+        b.style.left = Math.random() * 100 + "vw";
+        b.style.fontSize = (25 + Math.random() * 25) + "px";
+        b.style.animationDuration = (6 + Math.random() * 4) + "s";
+
+        document.body.appendChild(b);
+
+        setTimeout(() => b.remove(), 11000);
+    }
+}
+
+function fireworks() {
+
+    for (let i = 0; i < 100; i++) {
+
+        const f = document.createElement("div");
+
+        f.className = "firework";
+
+        f.style.left = (10 + Math.random() * 80) + "vw";
+        f.style.top = (10 + Math.random() * 70) + "vh";
+
+        f.style.background =
+            "hsl(" + Math.random() * 360 + ",100%,60%)";
+
+        f.style.setProperty(
+            "--x", (Math.random() - 0.5) * 250 + "px"
+        );
+
+        f.style.setProperty(
+            "--y", (Math.random() - 0.5) * 250 + "px"
+        );
+
+        document.body.appendChild(f);
+
+        setTimeout(() => f.remove(), 1600);
+    }
+}
+
+function birthdayTune() {
+
+    const AudioClass =
+        window.AudioContext || window.webkitAudioContext;
+
+    if (!AudioClass) return;
+
+    const ctx = new AudioClass();
+
+    ctx.resume();
+
+    const notes = [
+        262, 262, 294, 262, 349, 330,
+        262, 262, 294, 262, 392, 349
+    ];
+
+    let t = ctx.currentTime;
+
+    notes.forEach(n => {
+
+        const o = ctx.createOscillator();
+        const g = ctx.createGain();
+
+        o.connect(g);
+        g.connect(ctx.destination);
+
+        o.type = "triangle";
+        o.frequency.value = n;
+
+        g.gain.setValueAtTime(0.12, t);
+        g.gain.exponentialRampToValueAtTime(0.001, t + 0.3);
+
+        o.start(t);
+        o.stop(t + 0.3);
+
+        t += 0.35;
+    });
+
+    setTimeout(() => ctx.close(), 5000);
+}
+
+</script>
+
+</body>
+</html>
